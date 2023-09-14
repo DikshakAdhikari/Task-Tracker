@@ -53,6 +53,7 @@ const TodoList = ()=> {
     }
     
     
+    
     return (
         <div>
             {
@@ -62,8 +63,10 @@ const TodoList = ()=> {
                     <div>{todo.description}</div>
                     <div className='flex gap-3'>
                     <button onClick={()=>{
-                        <UpdateTodo todoID:number= {todo.id} />
-                         navigate('/updateTodo')}} >Edit</button>
+                        
+                        navigate(`/updateTodo/${todo.id}`);
+                       
+                        }} >Edit</button>
                     <button onClick={async()=> {
                         try{
                             await axios.delete(`http://localhost:3000/todos/${todo.id}`)

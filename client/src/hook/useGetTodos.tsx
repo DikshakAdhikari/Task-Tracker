@@ -18,9 +18,9 @@ export const useGetTodos = ()=> {
     useEffect(()=> {
         const fun = async ()=> {
             try{
-                const res:todoArray= await axios.get('http://localhost:3000/todos');     
-                //@ts-ignore
-                setTodos(res.data.todos);
+                const res= await axios.get<todoArray>('http://localhost:3000/todos');     
+               
+                setTodos(res.data);
                 setLoading(false)
             }catch(err){
                 setLoading(true)

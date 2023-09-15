@@ -26,7 +26,7 @@ router.post('/todo', async (req,res)=> {
 
 router.get('/', async (req, res)=> {
     try{
-        res.json({todos: TODOS});
+        res.json( TODOS);
     }catch(err){
         res.status(403).json(err)
     }
@@ -62,6 +62,21 @@ router.delete('/:id', async (req,res)=> {
     }
 })
 
+router.get('/:id', async (req,res)=> {
+    try{
+        const {id}= req.params;
+        const todoIndex= TODOS.findIndex((todo)=> todo.id === Number(id));
+        
+        if(todoIndex>-1){
+            res.json(TODOS[todoIndex])
+        }else{
+            res.status(404).json({ message: 'Todo not found' });
+        }
+    }catch(err){
+        console.log(err);
+        
+    }
+})
 
 
 export default router

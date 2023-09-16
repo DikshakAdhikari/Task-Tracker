@@ -29,7 +29,7 @@ export const UpdateTodo:FC = () => {
     return(
         <>
         <div className="flex flex-col gap-10 ml-5 mt-10">
-            <div className="font-bold text-blue-950 text-[35px]">Update Todo</div>
+            <div className="font-bold  text-[35px]">Update Todo</div>
             <div className="flex gap-5">
                 <div className="  text-[30px]">Title:</div>
                 <input value={title}  type="text" onChange={(e)=> setTitle(e.target.value)} className=" shadow-lg w-[50%] rounded-md p-2" />
